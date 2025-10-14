@@ -14,7 +14,7 @@
          :height 600
          :webPreferences
          {:nodeIntegration true
-          :preload (path/join js/__dirname ".." "/preload.js")}
+          :contextIsolation false}
          ;; :transparent true
          :backgroundColor "#dddddd"})))
 

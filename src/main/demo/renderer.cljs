@@ -1,7 +1,12 @@
-(ns demo.renderer)
+(ns demo.renderer
+  (:require
+    [shadow.lazy :as lazy]
+    [shadow.cljs.modern :refer (js-await)]))
+
+(def x-lazy (lazy/loadable demo.loadable/x))
 
 (defn init []
-  (-> (js/document.getElementById "test")
-      (.addEventListener "input"
-        (fn [^js e]
-          (js/window.electronAPI.setTitle (-> e .-target .-value))))))
+
+  (lazy/load x-lazy)
+  (js-await [x (lazy/load x-lazy)]
+    (x "Module loaded")))

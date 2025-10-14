@@ -20,5 +20,7 @@
    :devtools {:watch-dir "app/public"}
    :output-dir "app/public/js"
    :asset-path "js"
-   :modules {:app {:init-fn demo.renderer/init}}}}
- }
+   :module-loader true
+   :modules {:app {:init-fn demo.renderer/init}
+             :extra {:entries [demo.loadable]
+                     :depends-on #{:app}}}}}}
