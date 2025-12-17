@@ -14,6 +14,7 @@
          :height 600
          :webPreferences
          {:nodeIntegration true
+          :allowRunningInsecureContent true
           :contextIsolation false}
          ;; :transparent true
          :backgroundColor "#dddddd"})))

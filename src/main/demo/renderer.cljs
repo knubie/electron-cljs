@@ -1,12 +1,8 @@
 (ns demo.renderer
   (:require
-    [shadow.lazy :as lazy]
+    [shadow.esm :as esm]
     [shadow.cljs.modern :refer (js-await)]))
 
-(def x-lazy (lazy/loadable demo.loadable/x))
-
 (defn init []
-
-  (lazy/load x-lazy)
-  (js-await [x (lazy/load x-lazy)]
-    (x "Module loaded")))
+  (js-await [x (esm/load-by-name "x")]
+    ((x) "Module loaded")))

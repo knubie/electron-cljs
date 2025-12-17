@@ -16,11 +16,10 @@
              demo.preload]}
 
   :renderer
-  {:target :browser
+  {:target :esm
    :devtools {:watch-dir "app/public"}
    :output-dir "app/public/js"
    :asset-path "js"
-   :module-loader true
    :modules {:app {:init-fn demo.renderer/init}
              :extra {:entries [demo.loadable]
                      :depends-on #{:app}}}}}}
